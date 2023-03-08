@@ -7,6 +7,7 @@ import './randomChar.scss';
 import mjolnir from '../../resources/img/mjolnir.png';
 
 class RandomChar extends Component {
+	
 	state = {
 		char: {},
 		loading: true,
@@ -56,6 +57,7 @@ class RandomChar extends Component {
    render () {
 
 		const {char, loading, error} = this.state;
+
 		const errorMessage = error ? <ErrorMessage/> : null;
 		const spinner = loading ? <Spinner/> : null;
 		const content = !(loading || error) ? <View char={char}/> : null;
@@ -85,6 +87,7 @@ class RandomChar extends Component {
 
 const View = ({char}) => {
 	const {name, description, thumbnail, homepage, wiki} = char;
+	
 	let imgStyle = {'objectFit' : 'cover'};
 	if (thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
 		imgStyle = {'objectFit' : 'contain'};
